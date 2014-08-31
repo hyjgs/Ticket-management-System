@@ -1,0 +1,134 @@
+public int getRowCount(String name,int i){
+		int rowCount =0;
+		String sql = null;
+		if(i==1){
+	 sql ="select count(*) from finished_branch_hyj where province_name = '"+ name+"'";
+		}else if(i==2){
+			 sql ="select count(*) from finished_branch_hyj where city_name = '"+ name+"'";
+		}else if(i==3){
+			 sql ="select count(*) from finished_branch_hyj where branch_name = '"+ name+"'";
+		}
+		else{
+			return rowCount;
+		}
+		 Connection conn = CollectionUtils.getConnection();
+		 Statement stmt = null;
+		 ResultSet rs = null;
+				 try {
+					stmt = conn.createStatement();
+					rs = stmt.executeQuery(sql);
+					if(rs.next()){
+						  rowCount = rs.getInt("count(*)");
+					}
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}finally{
+					CollectionUtils.close(stmt);
+					CollectionUtils.close(conn);
+					CollectionUtils.close(rs);
+				}
+				return rowCount;
+	}
+
+
+
+
+
+
+
+
+	public Branch[] getSomeBranches(Branch branch) {
+		 Branch[] branches = new Branch[1];
+		 String sql=null;
+		 int rowCount=0;
+		 if(branch.getBranch_id()!=0){
+		 int branch_id = branch.getBranch_id();
+		 rowCount= getRowCount(branch_id);
+		 branches = new Branch[rowCount];
+		 sql ="select * from finished_branch_hyj where branch_id = "+ branch_id;
+		 }else if(branch.getBranch_name()!=null){
+			 String branch_name = branch.getBranch_name();
+			 rowCount= getRowCount(branch_name,3);
+			 branches = new Branch[rowCount];
+			 sql ="select * from finished_branch_hyj where branch_name = '"+ branch_name+"'";
+		 }else if(branch.getCity_name()!=null) {
+			 String city_name = branch.getCity_name();
+			 rowCount= getRowCount(city_name,2);
+			 branches = new Branch[rowCount];
+			 sql ="select * from finished_branch_hyj where city_name = '"+ city_name+"'";
+		 }else if(branch.getProvince_name()!=null){
+			 String province_name = branch.getProvince_name();
+			 rowCount= getRowCount(province_name,1);
+			 branches = new Branch[rowCount];
+			 sql ="select * from finished_branch_hyj where province_name = '"+ province_name+"'";
+		 } else {
+			 return branches;
+		 }
+		 
+		 Connection conn = CollectionUtils.getConnection();
+		 Statement stmt = null;
+		 ResultSet rs = null;
+				 try {
+					stmt = conn.createStatement();
+					rs = stmt.executeQuery(sql);
+				for(int i=0;i<rowCount;i++){
+					if(rs.next()){
+//						System.out.println("the id is "+branch_id);
+//						System.out.println("the length is "+branches.length);
+						 branches[i] = new Branch();
+							branches[i].setBranch_id(rs.getInt("branch_id"));
+						  branches[i].setBranch_name(rs.getString("branch_name"));
+						  branches[i].setProvince_name(rs.getString("province_name"));
+						  branches[i].setCity_name(rs.getString("city_name"));
+						  branches[i].setBranch_telephone1(rs.getString("branch_telephone1"));
+						  branches[i].setBranch_address(rs.getString("branch_address"));
+						  branches[i].setUser_id(rs.getInt("user_id"));
+						  break;
+					}
+					}
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}finally{
+					CollectionUtils.close(stmt);
+					CollectionUtils.close(conn);
+					CollectionUtils.close(rs);
+				}
+				return branches;
+	}
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	for(int m=0;m<10;m++){
+				for(int n=1;n<6;n++){
+					jt.setValueAt("",m,n);
+				}
+			}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

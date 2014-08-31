@@ -1,0 +1,22 @@
+create or replace view v_hyj
+as 
+select * from branch_cl b join user_cl u on b.branch_id = u.branch_id;
+select  *
+from branch_cl b join user_cl u on b.branch_id = u.branch_id where u.role_id=2;
+create or replace view branch_hyj
+as
+select b.branch_id,b.province_id,b.city_id,b.branch_name,b.branch_address,b.branch_telephone1,
+u.user_id
+from branch_cl b join user_cl u on b.branch_id = u.branch_id where u.role_id=2;
+
+select * from branch_hyj;
+
+select * from branch_hyj join city_cl c on branch_hyj.CITY_ID = c.city_id;
+
+create or replace view finished_branch_hyj
+as
+select b.branch_id,c.province_name,c.city_name,b.branch_name,b.branch_address,b.branch_telephone1,
+b.user_id
+from branch_hyj b join v_hyj c on b.CITY_ID = c.city_id;
+ 
+select * from finished_branch_hyj;

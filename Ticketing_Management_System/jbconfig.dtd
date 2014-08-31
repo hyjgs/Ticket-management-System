@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT JDBC (userJB*)>
+	<!ELEMENT userJB (driver_class,url,dbuser,dbpassword)>
+	<!ELEMENT driver_class (#PCDATA)>
+	<!ELEMENT url (#PCDATA)>
+	<!ELEMENT dbuser (#PCDATA)>
+	<!ELEMENT dbpassword (#PCDATA)>

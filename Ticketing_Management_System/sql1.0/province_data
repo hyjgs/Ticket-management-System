@@ -1,0 +1,14 @@
+insert into province_cl
+value(1,'北京','京','beijing');
+insert into province_cl
+value(2,'上海','沪','shanghai');
+insert into province_cl
+value(3,'广东','粤','guangdong');
+insert into province_cl
+value(4,'浙江','浙','zhejiang');
+insert into province_cl
+value(5,'四川','川','sichuan');
+insert into province_cl
+value(6,'吉林','吉','jilin');
+insert into province_cl
+value(7,'新疆','新','xinjiang');

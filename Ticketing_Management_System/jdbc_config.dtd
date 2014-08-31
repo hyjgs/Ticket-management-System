@@ -1,0 +1,7 @@
+<!ELEMENT JDBC (Database*)>
+<!ELEMENT Database (driver_class,url,user_name,password)>
+<!ELEMENT driver_class (#PCDATA)>
+<!ELEMENT url (#PCDATA)>
+<!ELEMENT user_name (#PCDATA)>
+<!ELEMENT password (#PCDATA)>
+<!ATTLIST Database name ID #REQUIRED>

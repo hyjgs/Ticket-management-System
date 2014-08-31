@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE JDBC SYSTEM "jbconfig.dtd" >
+<JDBC>
+<userJB>
+<driver_class>oracle.jdbc.driver.OracleDriver</driver_class>
+<url>jdbc:oracle:thin:@192.168.0.23:1521:tarena</url>
+<dbuser>sd1404</dbuser>
+<dbpassword>sd1404</dbpassword>
+</userJB>
+<userJB>
+<driver_class>oracle.jdbc.driver.OracleDriver</driver_class>
+<url>jdbc:oracle:thin:@192.168.0.23:1521:tarena</url>
+<dbuser>jdsd1404</dbuser>
+<dbpassword>jdsd1404</dbpassword>
+</userJB>
+</JDBC>
